@@ -1,4 +1,4 @@
-# cyber Security
+# Cyber Security
 
 ## My Information
 - Naphat manbut
