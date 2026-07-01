@@ -1,6 +1,4 @@
-# 69-s1-cybersec
+# cyber Security
 
-Homework #1
-
-Name: ณภัทร มานะบุตร
-Student ID: 056860405017-5
+## My Information
+- Naphat manbut
