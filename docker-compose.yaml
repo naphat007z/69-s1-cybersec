@@ -1,22 +1,15 @@
-services:
+ervices:
   db:
     image: postgres:16-alpine
     container_name: 69-s1-db
     ports:
-<<<<<<< HEAD
-      - 54327:5432
-    environment:
-      - POSTGRES_PASSWORD=Nap007xHat
-      - POSTGRES_USER=naphat
-      - POSTGRES_DB=naphat
-    volumes:
-      - ./data/data:/var/lib/postgresql/data
-=======
       - "54327:5432"
     environment:
       POSTGRES_USER: naphat
       POSTGRES_PASSWORD: Nap007xHat
       POSTGRES_DB: naphat
+    volumes:
+      - ./data/data:/var/lib/postgresql/data
 
   admin:
     image: dpage/pgadmin4
@@ -28,4 +21,3 @@ services:
       PGADMIN_DEFAULT_PASSWORD: Nap007xHat
     depends_on:
       - db
->>>>>>> a35447e (Add pgAdmin service)
