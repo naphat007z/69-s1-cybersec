@@ -3,8 +3,10 @@ services:
     image: postgres:16-alpine
     container_name: 69-s1-db
     ports:
-      - "5432:5432"
+      - 54327:5432
     environment:
-      POSTGRES_USER: student
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: labdb
+      - POSTGRES_PASSWORD=Nap007xHat
+      - POSTGRES_USER=naphat
+      - POSTGRES_DB=naphat
+    volumes:
+      - ./data/data:/var/lib/postgresql/data
