@@ -21,8 +21,19 @@ services:
       PGADMIN_DEFAULT_PASSWORD: Nap007xHat
     volumes:
       - data-pgadmin:/var/lib/pgadmin
-    depends_on:
-      - db
+
+  app:
+    image: prawee/strapi
+    container_name: 69-s1-app
+    ports:
+      - "9091:1337"
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: 69-s1-db
+      DATABASE_PORT: 5432
+      DATABASE_NAME: naphat
+      DATABASE_USERNAME: naphat
+      DATABASE_PASSWORD: Nap007xHat
 
 volumes:
   data-pgadmin:
