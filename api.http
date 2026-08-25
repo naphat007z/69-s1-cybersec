@@ -11,7 +11,7 @@ Content-Type: application/json
 ###
 
 #Forgot 
-POST http://localhost:9091/api/auth/forgot-password
+GET http://localhost:9091/admin/forgot-password
 Content-Type: application/json
 
 {
@@ -21,12 +21,13 @@ Content-Type: application/json
 ###
 
 #Profile
-GET http://localhost:9091/api/users/me
-Authorization: Bearer 
+GET http://localhost:9091/admin/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzg3NjY5NTc0LCJleHAiOjE3OTAyNjE1NzR9.FlB7B7M-Yzsqf4an8cXOCnMRij0nHl-s-M1jVRuH9n8
+
 ###
 
 #Register / Signup
-POST http://localhost:9091/api/auth/local/register
+GET http://localhost:9091/admin/register-admin
 Content-Type: application/json
 
 {
