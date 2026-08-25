@@ -5,9 +5,9 @@ services:
     ports:
       - "54327:5432"
     environment:
-      POSTGRES_USER: naphat
-      POSTGRES_PASSWORD: Nap007xHat
-      POSTGRES_DB: naphat
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - ./data/data:/var/lib/postgresql/data
 
@@ -17,8 +17,8 @@ services:
     ports:
       - "8081:80"
     environment:
-      PGADMIN_DEFAULT_EMAIL: naphat@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: Nap007xHat
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     volumes:
       - data-pgadmin:/var/lib/pgadmin
 
@@ -31,9 +31,9 @@ services:
       DATABASE_CLIENT: postgres
       DATABASE_HOST: 69-s1-db
       DATABASE_PORT: 5432
-      DATABASE_NAME: naphat
-      DATABASE_USERNAME: naphat
-      DATABASE_PASSWORD: Nap007xHat
+      DATABASE_NAME: ${POSTGRES_DB}
+      DATABASE_USERNAME: ${POSTGRES_USER}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
 
 volumes:
   data-pgadmin:
