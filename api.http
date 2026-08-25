@@ -1,0 +1,9 @@
+LOGIN (ของแอดมิน)
+POST http://localhost:9091/admin/login
+Content-Type: application/json
+
+{
+    "email": "naphat@gmail.com",
+    "password": "Nap007xHat",
+    "rememberMe": false
+}
