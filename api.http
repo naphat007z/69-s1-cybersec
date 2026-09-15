@@ -1,38 +1,88 @@
-#Login
+# API
+
+## 1.Admin
+
+### 1.1 Login
 POST http://localhost:9091/admin/login
 Content-Type: application/json
 
 {
-    "email": "naphat@gmail.com",
+    "email": "naphat-man@rmutp.ac.th",
     "password": "Nap007xHat",
     "rememberMe": false
 }
 
-###
-
-#Forgot 
-GET http://localhost:9091/admin/forgot-password
+### 1.2 Signup
+POST http://localhost:9091/admin/register-admin
 Content-Type: application/json
 
 {
-    "email": "naphat@gmail.com"
-}
-
-###
-
-#Profile
-GET http://localhost:9091/admin/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzg3NjY5NTc0LCJleHAiOjE3OTAyNjE1NzR9.FlB7B7M-Yzsqf4an8cXOCnMRij0nHl-s-M1jVRuH9n8
-
-###
-
-#Register / Signup
-GET http://localhost:9091/admin/register-admin
-Content-Type: application/json
-
-{
-    "username": "naphat",
-    "email": "naphat@gmail.com",
+    "firstname": "naphat",
+    "lastname": "manabut",
+    "email": "naphat-man@rmutp.ac.th",
     "password": "Nap007xHat"
 }
 
+### 1.3 Forgot Password
+POST http://localhost:9091/admin/forgot-password
+Content-Type: application/json
+
+{
+    "email": "naphat-man@rmutp.ac.th"
+}
+
+### 1.3.1 Reset Password
+POST http://localhost:9091/admin/reset-password
+Content-Type: application/json
+
+{
+    "resetPasswordToken": "258b27db8ce1e1bc7ef10fc4bef8a861f0643a19",
+    "password": "Nap007xHatt"
+}
+
+### 1.4 Profile
+GET http://localhost:9091/admin/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzg5NDg2ODU1LCJleHAiOjE3OTIwNzg4NTV9.Ktl8HfBLN6X7FiSQh_qW5MMSJunFL2ISSQ8AVHdCj-M
+
+## 2.User
+
+### 2.1 Login
+POST http://localhost:9091/api/auth/local
+Content-Type: application/json
+
+{
+    "identifier": "knogzaa",
+    "password": "knogza009"
+}
+
+### 2.2 Signup
+POST http://localhost:9091/api/auth/local/register
+Content-Type: application/json
+
+{
+    "username": "knogzaa",
+    "email": "knogzaa@gmail.com",
+    "password": "knogza009"
+}
+
+### 2.3 Forgot Password
+POST http://localhost:9091/api/auth/forgot-password
+Content-Type: application/json
+
+{
+    "email": "knogzaa@gmail.com"
+}
+
+### 2.3.1 Reset Password
+POST http://localhost:9091/api/auth/reset-password
+Content-Type: application/json
+
+{
+    "code": "d56440ab4085f1dcea2cefecd31d93fbe6c42fe672154b0856528f6dba8954aa822d9fe268f34d27a9d37fa47ac3b72025871412a15ae19bfbf662c3fea3f4f5",
+    "password": "knogza009",
+    "passwordConfirmation": "knogza009"
+}
+
+### 2.4 Profile
+GET http://localhost:9091/api/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsImlhdCI6MTc4OTQ5MDkyMywiZXhwIjoxNzkyMDgyOTIzfQ.m9aMYouLItoJAohm9XnFtSFWe8S7dSKc8PjANzfxRHM
