@@ -93,3 +93,119 @@ Content-Type: application/json
 // เอา token จาก response ของข้อ 2.1 ไปใส่ใน Authorization
 GET http://localhost:9091/api/users/me
 Authorization: Bearer <token_from_2.1>
+
+## 3.Content
+### 3.1 Student
+#### 3.1.1 Create Student
+# @name createStudent
+POST http://localhost:9091/api/students
+Content-Type: application/json
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+{
+    "data": {
+        "name": "{{$dotenv STUDENT_NAME}}",
+        "mobile": "{{$dotenv STUDENT_MOBILE}}",
+        "cardId": "{{$dotenv STUDENT_CARD_ID}}"
+    }
+}
+
+#### 3.1.2 Get all Student
+GET http://localhost:9091/api/students
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+#### 3.1.3 Update Student
+// >>> แก้เลข id ตรงนี้ได้เลย เพื่อชี้ student ที่ต้องการ (ดู id จาก 3.1.2) <<<
+PUT http://localhost:9091/api/students/1
+Content-Type: application/json
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+{
+    "data": {
+        "name": "{{$dotenv STUDENT_NAME}}",
+        "mobile": "{{$dotenv STUDENT_MOBILE}}",
+        "cardId": "{{$dotenv STUDENT_CARD_ID}}"
+    }
+}
+
+#### 3.1.4 Delete Student
+// >>> แก้เลข id ตรงนี้ได้เลย เพื่อชี้ student ที่ต้องการลบ <<<
+DELETE http://localhost:9091/api/students/1
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+#### 3.1.5 Get Student by ID
+// >>> แก้เลข id ตรงนี้ได้เลย เพื่อชี้ student ที่ต้องการดู <<<
+GET http://localhost:9091/api/students/1
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+### 3.2 Teacher
+#### 3.2.1 Create Teacher
+# @name createTeacher
+POST http://localhost:9091/api/teachers
+Content-Type: application/json
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+{
+    "data": {
+        "name": "{{$dotenv TEACHER_NAME}}"
+    }
+}
+
+#### 3.2.2 Get all Teacher
+GET http://localhost:9091/api/teachers
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+#### 3.2.3 Update Teacher
+PUT http://localhost:9091/api/teachers/{{createTeacher.response.body.$.data.id}}
+Content-Type: application/json
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+{
+    "data": {
+        "name": "{{$dotenv TEACHER_NAME}}"
+    }
+}
+
+#### 3.2.4 Delete Teacher
+DELETE http://localhost:9091/api/teachers/{{createTeacher.response.body.$.data.id}}
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+#### 3.2.5 Get Teacher by ID
+GET http://localhost:9091/api/teachers/{{createTeacher.response.body.$.data.id}}
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+### 3.3 Subject
+#### 3.3.1 Create Subject
+# @name createSubject
+POST http://localhost:9091/api/subjects
+Content-Type: application/json
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+{
+    "data": {
+        "name": "{{$dotenv SUBJECT_NAME}}"
+    }
+}
+
+#### 3.3.2 Get all Subject
+GET http://localhost:9091/api/subjects
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+#### 3.3.3 Update Subject
+PUT http://localhost:9091/api/subjects/{{createSubject.response.body.$.data.id}}
+Content-Type: application/json
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+{
+    "data": {
+        "name": "{{$dotenv SUBJECT_NAME}}"
+    }
+}
+
+#### 3.3.4 Delete Subject
+DELETE http://localhost:9091/api/subjects/{{createSubject.response.body.$.data.id}}
+Authorization: Bearer {{$dotenv USER_TOKEN}}
+
+#### 3.3.5 Get Subject by ID
+GET http://localhost:9091/api/subjects/{{createSubject.response.body.$.data.id}}
+Authorization: Bearer {{$dotenv USER_TOKEN}}
